@@ -46,7 +46,7 @@ def addNode(list,start,free):
         free=temp
 
         return True,list,start,free
-    
+
 def addNodeTwo(list,start,free):
     item_to_be_added=int(input("Please enter the data to be added: "))
     if free<0 or free>9:

@@ -1,6 +1,6 @@
 import os
 
-def rename_photos("C:/main_directory/Train/Bamboo/"):
+def rename_photos(folder_path):
     if not os.path.isdir(folder_path):
         print("Invalid folder path.")
         return
@@ -14,6 +14,6 @@ def rename_photos("C:/main_directory/Train/Bamboo/"):
             os.rename(old_path, new_path)
             count += 1
 
-if  folder_path = input("Enter the folder path: "):
-    rename_photos(folder_path)
-    print("Photos renamed successfully.")
+folder_path = input("Enter the folder path: ")
+rename_photos(folder_path)
+print("Photos renamed successfully.")

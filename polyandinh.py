@@ -1,5 +1,6 @@
 # SCREEN NAZAR AARAHI?
- # parent class banatey hain
+
+# parent class banatey hain
 
 class LivingThing:
     def __init__(self,age, eyecol):
@@ -12,12 +13,13 @@ class LivingThing:
 # ab child class
 
 class Human(LivingThing):
-    def __init__(self, age, eyecol,name, cnic):
-        super().__init__(age,eyecol)
+    def __init__(self, age, eyecol, name, cnic):
+
+        super().__init__(age,eyecol) # inherit the properties of the SUPER/ PARENT CLASS
         self.name=name
         self.cnic=cnic
 
-    def make_sound(self):
+    def make_sound(self): # polymorphism
         print("INSAAN HOON MEIN!")
 
 # BASICALLY, WE MADE A METHOD WITH EXACTTT SAME NAME IN TWO CLASSES, AT THE MOMENT PARENT AND CHILD CLASS ARENT CONNECTED
@@ -46,7 +48,7 @@ dog.make_sound()
 
 # CORRECT
 
-# nononono, polymorphism is basically method overloading, we made method of exact same names, and with classes, the same method performs differently
+# nononono, polymorphism is basically method/ functions overloading, we made methods of exact same names, and with parent/child classes, the same method performs differently
 
 # YESSS, inheritance bhi issi mein hai, linking classes with super was inheritance
 
@@ -56,9 +58,18 @@ dog.make_sound()
 
 # TIME FOR NEXT EXAMPLE
 
+
+# CAR HAS A ENGINE
+# PARENT HAS A CHILD (containment, composition)
+
+class Engine:
+    def __init__(self,oilcapacity):
+        self.oilcapacity=oilcapacity
+
 class Car:
     def __init__(self, name):
         self.name=name
+        self.engine=Engine(-1) # composition
 
     def sound(self):
         print("VROOOM")
@@ -69,10 +80,11 @@ class Tesla(Car):
         self.batterycapacity=batterycapacity
 
     def sound(self):
-        print("........IM AN ELECTRIC CAR NVGGA")
+        print("........IM AN ELECTRIC CAR")
 
 class Buggati(Car):
     def __init__(self, name, horsep):
+        
         super().__init__(name)
         self.horsep=horsep
 
@@ -85,10 +97,8 @@ superSport=Buggati("SUPER SPORT 16.4", 231)
 modelS.sound()
 superSport.sound()
 
-# AB AIK AUR CASE HAI, dekho we just inherited stuff, I COULD SAY KE Car and TESLA have a "IS-A" relationship because TESLA "IS-A" Car, u get me??
-# second type of relation is "HAS-A", usmein aik class contains object of another class, ab IS-A is inheritance, HAS-A is containment
-
-# ab 2 mins, i must not fck this up
+# AB AIK AUR CASE HAI, dekho we just inherited stuff, I COULD SAY KE Car and TESLA have a "IS-A" relationship because TESLA "IS-A" Car, u get me?? child IS A parent
+# second type of relation is "HAS-A", usmein aik class contains object of another class, ab IS-A is inheritance, HAS-A is containment / composition
 
 # IGHT, LETS GOOO, example time
 
@@ -102,8 +112,11 @@ class CookingInstruction:
         self.__act=actualinstruction
         self.__duration=duration
 
-    def getInstruction(self):
+    def getInstruction(self): # GETTER
         return self.__act
+    
+    def setDifficulty(self, difficulty): # SETTER
+        self.__difficulty=difficulty
     
 class Ingredients:
     def __init__(self, name, amount):
@@ -112,6 +125,13 @@ class Ingredients:
 
     def getIng(self):
         return self.__name+" "+self.__amount
+
+instr1=CookingInstruction("MEDIUM", "BOIL WATER FOR 5 MINS", 5)
+instr1.setDifficulty("Super easy") 
+
+# setters literally set the value of attributes
+# getters literally get the value of attributes
+
 class Recipe:
     def __init__(self, name):
         self.__name=name
@@ -121,7 +141,7 @@ class Recipe:
     def getInstructions(self):
         for i in range(10):
             if (self.__instructions[i].getInstruction()!=""):
-                print(self.__instructions[i].getInstruction())    # this shit will work cuz private attribute hai so we shall use the getter method to extract string waala instruction
+                print(self.__instructions[i].getInstruction())    # this will work cuz private attribute hai so we shall use the getter method to extract string waala instruction
 
     def getIngredient(self):
         for i in range(20):        
@@ -153,3 +173,9 @@ chickentikkamasala.getInstructions()
 # gimme 2 mins, dhoond ke nikalta paper
 # check the link, on discord, best, lets do question 3 uska
 # yes correct
+
+# mon-fri
+# tues, thurs
+# thurs -> friday
+# tues, fri, sat (10 am)
+
