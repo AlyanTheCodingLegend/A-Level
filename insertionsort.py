@@ -44,21 +44,22 @@ def insertionSort(arr):
     n=len(arr)
 
     for i in range(1, n): # i-> 1 till len(arr)-1
-
+        # key = arr[7]
         key = arr[i] # key stores 2nd element onwards
 
         # Move elements of arr[0..(i-1)] which are greater than the key
         # move them one position ahead of their current position
 
         j=i-1  # j-> 0 till len(arr) - 2
+        # j=6
 
         while j>=0 and key < arr[j]:
         
-            arr[j+1] = arr[j]
+            arr[j+1] = arr[j] # arr[1] = arr[0]
 
-            j=j-1
+            j=j-1 # will not run
 
-        arr[j+1]=key    
+        arr[j+1]=key # arr[7] = arr[7]   
 
     return arr    
 
@@ -69,7 +70,7 @@ def insertionSort(arr):
 # [2,5,9,8,0] swap 1
 
 # i=2, j=1, key = 9, arr[j] = 5, arr[j+1]=9
-# [2,5,9,8,0] swap 0
+# [2,5,9,8,0] swap 0 
         
 # [2,5,8,9,0] swap 1
         
@@ -77,8 +78,3 @@ def insertionSort(arr):
         
 print("Insertion Sort: ")        
 print(insertionSort(userarray))
-        
-
-
-
-
