@@ -11,10 +11,11 @@ class TreasureChest:
     def getQuestion(self):
         return self.__question    
 
+arrayTreasure=[["" for i in range(3)]for j in range(5)]
+
 def readData():
     #DECLARE arrayTreasure:ARRAY[0:4] OF TreasureChest
     global arrayTreasure
-    arrayTreasure=[["" for i in range(3)]for j in range(5)]
     try:
         global filehandle
         filehandle=open("TreasureChestData.txt", "r")
