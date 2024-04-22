@@ -1,6 +1,6 @@
 # 3 impementations: 
 # 1. record aur array: class Node, linked list-> array
-# 2. 2d arrays 
+# 2. 2d arrays
 # 3. full record
 
 class Node:
@@ -9,6 +9,11 @@ class Node:
         self.pointer=pointer
 
 linkedList=[Node("",-1) for i in range(10)] # this array has 10 nodes, meaning list has 10 nodes
+
+linkedList=[["" for col in range(2)] for row in range(10)]
+
+# row represents a Node
+# 1st column represents data, 2nd column represents pointer
 
 # now, we will connect the nodes to construct the linked list
 

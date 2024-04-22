@@ -35,9 +35,4 @@ def RecursiveOutput(start):
     else:
         return Queue[start-1]+RecursiveOutput(start-1)
 
-print(f"The sum of all values in the queue is: {RecursiveOutput(tail)}")
-
-INTERACTIVE DEVELOPMENT ENVIRONMENT
-
-TEXT EDITOR
-
+print(f"The sum of all values in the queue is: {RecursiveOutput(tailPointer)}")
