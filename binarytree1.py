@@ -64,3 +64,47 @@ else:
     print(f"Value found at index: {result}")
 
 PostOrder(RootPointer)
+
+# Add node function which will be recursive
+
+# base case: there is no space, free
+# general case: we will just call the function with left/right pointer as parameter
+
+def AddNode(Root,ValueToAdd):
+    global ArrayNodes, FreeNode
+
+    if FreeNode>19: # Array is full
+        return Root,-1
+
+    ArrayNodes[FreeNode][1]=ValueToAdd # data has been inserted
+
+    if Root==-1: # Array is empty
+        Root=FreeNode
+        FreeNode+=1
+        return Root,1
+
+    if ArrayNodes[Root][1]>ValueToAdd:
+        if ArrayNodes[Root][0]!=-1: # iterating
+            AddNode(ArrayNodes[Root][0], ValueToAdd)
+        else: # finalizing the insertion
+            ArrayNodes[Root][0]=FreeNode # updating left pointer to connect the current node
+            FreeNode+=1
+            return Root,1 # stops recursion
+
+    if ArrayNodes[Root][1]<ValueToAdd:
+        if ArrayNodes[Root][2]!=-1: # iterating
+            AddNode(ArrayNodes[Root][2], ValueToAdd)
+        else: # finalizing the insertion
+            ArrayNodes[Root][2]=FreeNode # updating right pointer to connect the current node
+            FreeNode+=1
+            return Root,1 # stops recursion
+    
+RootPointer,resultTwo=AddNode(RootPointer,7)
+if resultTwo==-1:
+    print("Array was full")
+else:
+    print("Data added successfully!")
+
+PostOrder(RootPointer)    
+
+print(ArrayNodes)
