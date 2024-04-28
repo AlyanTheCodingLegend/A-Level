@@ -122,7 +122,38 @@ def deleteNode(datatobedeleted):
     else:
         print("data was not found")
 
+def insertAfter(item, after):
+    global linkedList, headP, freeP
 
+    if freeP==-1:
+        print("Linked list is full.")
+    else:
+        if headP==-1:
+            print("List is empty.")
+        else:
+            newNodeP=freeP
+            currentPointer=headP
+            search=True
+
+            while search:
+                currentData=linkedList[currentPointer].data
+
+                if currentData==after:
+                    search=False
+                else:
+                    currentPointer=linkedList[currentPointer].pointer
+                    if currentPointer==-1:
+                        search=False
+
+            if currentPointer==-1:
+                print(f"The node with data {after} was not found.")
+            else:
+                freeP=linkedList[freeP].pointer # freeP increments to new available space
+                linkedList[newNodeP].data=item # data is stored in the node
+                nextNodeP=linkedList[currentPointer].pointer # storing index of nextNode in a temporary variable FROM the previous node's pointer
+                linkedList[currentPointer].pointer=newNodeP # connecting previous node with NEW node by over writing previous node pointer's value
+                linkedList[newNodeP].pointer=nextNodeP # connecting NEW node to the next node using new node's pointer
+                print("Item added.")
 
 
 
